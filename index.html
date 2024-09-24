@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Draw</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <!-- Heading Canvas Draw App -->
+    <h1>Canvas Drawing App</h1>
+
+    <div id="controls">
+      <!-- Label for the color picker -->
+      <label for="colorpicker">Color:</label>
+      <input type="color" value="#000000" id="colorpicker" />
+
+      <!-- Brush -->
+      <label for="brush"> Brush Size:</label>
+      <input type="range" min="1" max="50" value="5" id="brushSize" />
+
+      <!-- Button -->
+      <button id="clear">Clear Canvas</button>
+    </div>
+    <!-- Canvas -->
+    <canvas id="canvas" width="700" height="400"> </canvas>
+
+    <!-- Internal JavaScript -->
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      const colorPicker = document.getElementById("colorpicker");
+      const brushSize = document.getElementById("brushSize");
+      const clearButton = document.getElementById("clear");
+
+      let painting = false;
+
+      // Draw dot where a user should start from
+      function startPosition(e) {
+        painting = true;
+        draw(e);
+      }
+
+      // Stop drawing
+      function endPition() {
+        painting = false;
+        ctx.beginPath();
+      }
+
+      // Draw
+      function draw(e) {
+        if (!painting) return;
+
+        ctx.lineWidth = brushSize.value;
+        ctx.lineCap = "round"; // It makes the line caps rounded
+        ctx.strokeStyle = colorPicker.value;
+
+        ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+      }
+
+      // TODO: Try to implement the event listener for start drawing and end drawing
+
+
+
+
+    </script>
+  </body>
+</html>
