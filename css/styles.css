@@ -28,7 +28,7 @@ label {
   margin-right: 20px;
 }
 
-#clear {
+#clearBtn {
   padding: 5px 10px;
   background-color: #007bff;
   color: white;
@@ -37,7 +37,7 @@ label {
   cursor: pointer;
 }
 
-#clear:hover {
+#clearBtn:hover {
     background-color: #0056b3;
 }
 
