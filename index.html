@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Canvas Draw</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <!-- Heading Canvas Draw App -->
@@ -20,7 +20,7 @@
       <input type="range" min="1" max="50" value="5" id="brushSize" />
 
       <!-- Button -->
-      <button id="clear">Clear Canvas</button>
+      <button id="clearBtn">Clear Canvas</button>
     </div>
     <!-- Canvas -->
     <canvas id="canvas" width="600" height="300"> </canvas>
@@ -31,7 +31,7 @@
       const ctx = canvas.getContext("2d");
       const colorPicker = document.getElementById("colorpicker");
       const brushSize = document.getElementById("brushSize");
-      const clearButton = document.getElementById("clear");
+      const clearBtn = document.getElementById("clearBtn");
 
       let painting = false;
 
@@ -64,14 +64,11 @@
       canvas.addEventListener('mousedown', startPosition);
       canvas.addEventListener('mouseup', endPosition);
       canvas.addEventListener('mousemove', draw);
-      clear.addEventListener('click', ()=>{
+      clearBtn.addEventListener('click', ()=>{
         ctx.clearRect(5, 5, canvas.width, canvas.height);
       });
 
-      // TODO: Try to implement the event listener for start drawing and end drawing
-
-
-
+      
 
 
 
